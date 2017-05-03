@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<link href="bootstrap.min.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<script src="angular.min.js"></script>
+<script src="app.js"></script>
+<body ng-app="weatherApp" style="margin-top:200px; ">
+<div  ng-controller="myCtrl" class="container text-center">
+<div class="row">
+	<br>
+	<div ng-model="weatherData"></div>
+	<div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						<div class="today forecast">
+							<div class="forecast-header">
+								<div class="day"></div>
+								<div class="date">6 Oct</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="location">{{curr_weather_text}}</div>
+								<div class="degree">
+									<div class="num">{{curr_temp}}<sup>o</sup>C</div>
+									<div class="forecast-icon">
+										<img src="images/icons/icon-1.svg" alt="" width="90">
+									</div>	
+								</div>
+								<span><img src="images/icons/icon-umberella.png" alt="">{{curr_humidity}}%</span>
+								<span><img src="images/icons/icon-wind.png" alt="">{{curr_wind_speed}}</span>
+								<span><img src="images/icons/icon-compass.png" alt="">East</span>
+							</div>
+						</div>
+						<div class="forecast" ng-repeat="forecast in forecast">
+							<div class="forecast-header">
+								<div class="day">{{forecast.date}}</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="location ng-binding">DAY : {{forecast.day[0].weather_text}}</div>
+								<div class="forecast-icon">
+									<img src="images/icons/icon-3.svg" alt="" width="48">
+								</div>
+								<div class="degree">{{forecast.day_max_temp}}<sup>o</sup>C</div>
+								<small>{{forecast.night_min_temp}}<sup>o</sup>c</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+</div>
+</div>
+
+
+</body>
+</html>
